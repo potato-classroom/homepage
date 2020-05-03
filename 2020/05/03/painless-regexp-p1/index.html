@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>無痛學正規表達式 —— Part 1 | 馬鈴薯教室</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="前言網路上有各種正規表達式的教學文章。但我相信大部分的人讀完多數的文章仍然不懂正規式。主要原因是因為正規式本身可以被寫得很複雜，有很多的功能，大多的教學很容易讓人覺得因為正規式複雜而讓人挫敗。 就跟在小學學算數一樣，當學完了基本的加減乘除後，老師會開始教你更難的數學，例如集合、代數等等。當然這些進階的東西是你學習數學所必須的，但我們日常生活中只會用到基本的加減乘除，若一開始就學習那些高級的東西很容">
+<meta property="og:type" content="article">
+<meta property="og:title" content="無痛學正規表達式 —— Part 1">
+<meta property="og:url" content="https://potato-class.com/2020/05/03/painless-regexp-p1/index.html">
+<meta property="og:site_name" content="馬鈴薯教室">
+<meta property="og:description" content="前言網路上有各種正規表達式的教學文章。但我相信大部分的人讀完多數的文章仍然不懂正規式。主要原因是因為正規式本身可以被寫得很複雜，有很多的功能，大多的教學很容易讓人覺得因為正規式複雜而讓人挫敗。 就跟在小學學算數一樣，當學完了基本的加減乘除後，老師會開始教你更難的數學，例如集合、代數等等。當然這些進階的東西是你學習數學所必須的，但我們日常生活中只會用到基本的加減乘除，若一開始就學習那些高級的東西很容">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2020-05-03T10:06:01.000Z">
+<meta property="article:modified_time" content="2020-05-03T10:45:36.096Z">
+<meta property="article:author" content="BinotaLIU">
+<meta property="article:tag" content="正規式">
+<meta property="article:tag" content="基礎">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="馬鈴薯教室" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">馬鈴薯教室</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜尋"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜尋"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://potato-class.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-painless-regexp-p1" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2020/05/03/painless-regexp-p1/" class="article-date">
+  <time class="dt-published" datetime="2020-05-03T10:06:01.000Z" itemprop="datePublished">2020-05-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      無痛學正規表達式 —— Part 1
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>網路上有各種正規表達式的教學文章。但我相信大部分的人讀完多數的文章仍然不懂正規式。主要原因是因為正規式本身可以被寫得很複雜，有很多的功能，大多的教學很容易讓人覺得因為正規式複雜而讓人挫敗。</p>
+<p>就跟在小學學算數一樣，當學完了基本的加減乘除後，老師會開始教你更難的數學，例如集合、代數等等。當然這些進階的東西是你學習數學所必須的，但我們日常生活中只會用到基本的加減乘除，若一開始就學習那些高級的東西很容易使人挫折。</p>
+<p>在這一系列的文章中我只會專注於教你正規表示式的「加減乘除」。</p>
+<a id="more"></a>
+
+<h1 id="使用環境"><a href="#使用環境" class="headerlink" title="使用環境"></a>使用環境</h1><p>這篇文章中所提到的正規表示式應該能在大多數的程式語言中使用。但這裡主要會使用 JavaScript。有些進階的功能可能無法在某些實作上使用，但這裡不會討論到那些功能。</p>
+<p>所有的範例都可以在 <a href="https://regexr.com/" target="_blank" rel="noopener">https://regexr.com/</a> 上試試。這個網站可以讓你測試隨時測試各種正規式。輸入正規式後還會給你一些解釋。</p>
+<h1 id="基礎中的基礎"><a href="#基礎中的基礎" class="headerlink" title="基礎中的基礎"></a>基礎中的基礎</h1><p>正規式是一串「代碼」，或者我們可以說是「格式 (Pattern)」，可以用來從一段字串當中根據制定的格式來截取出其中的一部分。</p>
+<p>來看看下面的正規表示式：</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/hey!<span class="regexp">/</span></span><br></pre></td></tr></table></figure>
+
+<p>這個例子當中只有一個字，「hey!」。你可以用 JavaScript 的 <code>String.prototype.match</code> 方法來試試：</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> result = <span class="string">"hey! how do you do today?"</span>.match(<span class="regexp">/hey!/</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(result)</span><br></pre></td></tr></table></figure>
+
+<p>你會看到輸出的結果是一個陣列：<code>[&#39;hey!&#39;]</code>。</p>
+<p>這個例子是一個非常基礎的正規表達式，只是找出你打出來的字而已。接下來你可以試試看把「hey!」改成其他字串，例如「how」或是「you」，然後看看輸出結果是什麼。</p>
+<h1 id="符號"><a href="#符號" class="headerlink" title="符號"></a>符號</h1><p>在上一個例子當中，我們用了正規式「<code>/hey!/</code>」來找到一個單子。如果你試了「<code>/today?/</code>」，你會發現結果跟你想的有點不一樣：</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> result = <span class="string">"hey! how do you do today?"</span>.match(<span class="regexp">/today?/</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(result) <span class="comment">// ['today']</span></span><br></pre></td></tr></table></figure>
+
+<p>問號沒有被包含在 <code>result</code> 裡面！為什麼會這樣呢？原來，在正規表達式中，有些符號有特別的意思。就像 JavaScript 跟大部分的程式語言中，如果要在字串裡包含反斜線（<code>\</code>）則需要輸入兩次 <code>\\</code>。因為反斜線可以通過跟其他的字元組合而變成一些符號，例如換行字元 <code>\n</code> 或是 Tab 字元 <code>\t</code>。問號 <code>?</code> 在正規式裡也是類似的概念。</p>
+<p>接下來讓我們來看看各種特殊字元！</p>
+<h2 id="問號「-」"><a href="#問號「-」" class="headerlink" title="問號「?」"></a>問號「?」</h2><p>問號「?」非常簡單，就只是用來找出前面的字元出現或沒出現而已。我相信你看到下面這個例子就會懂了：</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">"books"</span>.match(<span class="regexp">/books?/</span>)) <span class="comment">// ["books"]</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"book"</span>.match(<span class="regexp">/books?/</span>))  <span class="comment">// ["book"]</span></span><br></pre></td></tr></table></figure>
+
+<p>（問號還有另一個功能，我們將在這系列下一篇文章中討論。）</p>
+<h2 id="點「-」"><a href="#點「-」" class="headerlink" title="點「.」"></a>點「.」</h2><p>點「.」代表任何的字元 —— 除了換行字元（CR/LF）。</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> input = <span class="string">"&lt;a href='http://example.com'&gt;"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(input.match(<span class="regexp">/'./</span>)) <span class="comment">// ["'h"]</span></span><br><span class="line"><span class="built_in">console</span>.log(input.match(<span class="regexp">/'../</span>)) <span class="comment">// ["'ht"]</span></span><br><span class="line"><span class="built_in">console</span>.log(input.match(<span class="regexp">/'.../</span>)) <span class="comment">// ["'htt"]</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="加「-」"><a href="#加「-」" class="headerlink" title="加「+」"></a>加「+」</h2><p>加號「+」可以找出一個字元出現一次或多次出現。</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> input = <span class="string">"&lt;a href='http://example.com'&gt;"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 我們可以把加號跟句點「.」何在一起使用。</span></span><br><span class="line"><span class="built_in">console</span>.log(input.match(<span class="regexp">/'.+/</span>)) <span class="comment">// ["'http://example.com'&gt;"]</span></span><br><span class="line"><span class="built_in">console</span>.log(input.match(<span class="regexp">/'.+'/</span>)) <span class="comment">// ["'http://example.com'"]</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="星號「-」"><a href="#星號「-」" class="headerlink" title="星號「*」"></a>星號「*」</h2><p>星號就跟加號（<code>+</code>）類似，但星號允許前面的字元沒出現。</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> input = <span class="string">"&lt;a href='http://example.com'&gt;"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(input.match(<span class="regexp">/'.+'/</span>)) <span class="comment">// ["'http://example.com'"]</span></span><br><span class="line"><span class="built_in">console</span>.log(input.match(<span class="regexp">/'.*'/</span>)) <span class="comment">// ["'http://example.com'"] - 輸出結果就跟加號 + 一樣！</span></span><br></pre></td></tr></table></figure>
+
+<p>來看看另一個例子：</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> input2 = <span class="string">"&lt;a href=''&gt;"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(input.match(<span class="regexp">/'.+'/</span>)) <span class="comment">// [] - 什麼都沒有！</span></span><br><span class="line"><span class="built_in">console</span>.log(input.match(<span class="regexp">/'.*'/</span>)) <span class="comment">// ["''"]</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="方括號「-」"><a href="#方括號「-」" class="headerlink" title="方括號「[ ]」"></a>方括號「[ ]」</h2><p>方括號代表要讓程式找出括號中的任一字元。</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> input = <span class="string">"我的電話號碼是: 0912345678"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(input.match(<span class="regexp">/[0123456789]+/</span>)) <span class="comment">// ["0912345678"]</span></span><br></pre></td></tr></table></figure>
+
+<p>很有用，但在現實中我們可能不會這樣寫電話號碼。通常會加上減號（<code>-</code>）來讓它更好讀。國際電話的話還會有國碼，前面會多一個 <code>+</code>。來把這兩個符號加進正規式當中！</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> input = <span class="string">"我的電話號碼是: +886-912-345-678"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(input.match(<span class="regexp">/[0123456789+-]+/</span>)) <span class="comment">// ["+886-912-345-678"]</span></span><br></pre></td></tr></table></figure>
+
+<p>你可能會覺得很奇怪，我們剛才提過問號「?」的作用了。<code>9?</code> 是不是表示要找到重複好幾個的 9 呢？並不會。因為我們把問號放在方括號裡面了。方括號只會搜尋單一字元，而重複多個的 9 代表必須要找多個字元，所以在方括號裡面不需要在 + 與 * 前面加上跳脫字元。</p>
+<p>另外，除了直接寫出所有的數字（<code>0123456789</code>），也可以用一個減號來代表一個範圍的字元：</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> input = <span class="string">"我的電話號碼是: +886-912-345-678"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(input.match(<span class="regexp">/[0-9+-]+/</span>)) <span class="comment">// ["+886-123-456-789"]</span></span><br></pre></td></tr></table></figure>
+
+<p>這個例子看起來也有點奇怪。如果減號在方括號裡面代表特殊意思，那第二個減號呢？<br>減號只有在他的兩邊有字元的時候才代表一個「範圍」（例如 <code>0-9</code> 或 <code>a-z</code>）。而第二個減號在方括號的結尾，所以他就代表字面上的「<code>-</code>」。</p>
+<p>關於方括號，還有一個東西要學，就是 —— <code>^</code> 符號 (Caret)！</p>
+<p>如果在方括號一開始加上 <code>^</code>，就會找出所有 <strong>除了</strong> 方括號內的字元以外的所有字元。</p>
+<p>來看看下面這個使用句點「.」的例子：</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> input = <span class="string">"&lt;a href='http://example.com' target='_blank'&gt;連結&lt;/a&gt;"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(input.match(<span class="regexp">/href='.+'/</span>))</span><br><span class="line"><span class="comment">// ["href='http://example.com' target='_blank'"]</span></span><br><span class="line"><span class="comment">// 好像不是我們想要的結果……我們只想要網址的部分……</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 可以用下面這個寫法：</span></span><br><span class="line"><span class="built_in">console</span>.log(input.match(<span class="regexp">/href='[^']+'/</span>)) <span class="comment">// ["href='http://example.com'"]</span></span><br></pre></td></tr></table></figure>
+
+<p><code>[^&#39;]</code> 這個部分表示找出 <strong>除了單引號 (‘)</strong> 外所有的字元。所以當找到 <code>&#39;</code> 後就會停止。</p>
+<h2 id="括號「-」"><a href="#括號「-」" class="headerlink" title="括號「( )」"></a>括號「( )」</h2><p>括號代表分組出一小部分的格式。</p>
+<p>有時候我們只需要結果中的其中一部分：</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> input = <span class="string">"&lt;a href='http://example.com' target='_blank'&gt;連結&lt;/a&gt;"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(input.match(<span class="regexp">/href='[^']+'/</span>)) <span class="comment">// ["href='http://example.com'"]</span></span><br></pre></td></tr></table></figure>
+
+<p>如果我們只想要抓出單引號中的網址，我們可以加上括號：</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(input.match(<span class="regexp">/href='([^']+)'/</span>))</span><br><span class="line"><span class="comment">// ["href='http://example.com'", "http://example.com"]</span></span><br></pre></td></tr></table></figure>
+
+<p>輸出的陣列包含了兩個字串。第一個字串代表的正規式找到的整個範圍。而第二個則代表分組的內容。</p>
+<h1 id="接下來呢？"><a href="#接下來呢？" class="headerlink" title="接下來呢？"></a>接下來呢？</h1><p>到目前為止你所學的正規式已經足夠應付你的日常所需了！上面提到的這些符號對於大多數的狀況都已經足夠了。而且其中的例子還包含了如何截取出 HTML 的屬性 (Attribute)，以及找出電話號碼。</p>
+<p>下一篇文章我會講解有關錨點（Anchor）、貪多（Greedy）、字元類（Character Classes）、以及旗標（Flags）。</p>
+<p>如果有任何問題，歡迎留言！</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://potato-class.com/2020/05/03/painless-regexp-p1/" data-id="ck9qxin1c00000inyc3vgdypg" data-title="無痛學正規表達式 —— Part 1" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%9F%BA%E7%A4%8E/" rel="tag">基礎</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%AD%A3%E8%A6%8F%E5%BC%8F/" rel="tag">正規式</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">標籤</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9F%BA%E7%A4%8E/" rel="tag">基礎</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AD%A3%E8%A6%8F%E5%BC%8F/" rel="tag">正規式</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">標籤雲</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/%E5%9F%BA%E7%A4%8E/" style="font-size: 10px;">基礎</a> <a href="/tags/%E6%AD%A3%E8%A6%8F%E5%BC%8F/" style="font-size: 10px;">正規式</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">彙整</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/05/03/painless-regexp-p1/">無痛學正規表達式 —— Part 1</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 BinotaLIU<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

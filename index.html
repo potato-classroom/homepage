@@ -73,10 +73,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-painless-regexp-p1" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2020/05/03/hello-world/" class="article-date">
-  <time class="dt-published" datetime="2020-05-03T07:09:45.278Z" itemprop="datePublished">2020-05-03</time>
+    <a href="/2020/05/03/painless-regexp-p1/" class="article-date">
+  <time class="dt-published" datetime="2020-05-03T10:06:01.000Z" itemprop="datePublished">2020-05-03</time>
 </a>
     
   </div>
@@ -87,7 +87,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2020/05/03/hello-world/">Hello World</a>
+      <a class="p-name article-title" href="/2020/05/03/painless-regexp-p1/">無痛學正規表達式 —— Part 1</a>
     </h1>
   
 
@@ -95,27 +95,23 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>網路上有各種正規表達式的教學文章。但我相信大部分的人讀完多數的文章仍然不懂正規式。主要原因是因為正規式本身可以被寫得很複雜，有很多的功能，大多的教學很容易讓人覺得因為正規式複雜而讓人挫敗。</p>
+<p>就跟在小學學算數一樣，當學完了基本的加減乘除後，老師會開始教你更難的數學，例如集合、代數等等。當然這些進階的東西是你學習數學所必須的，但我們日常生活中只會用到基本的加減乘除，若一開始就學習那些高級的東西很容易使人挫折。</p>
+<p>在這一系列的文章中我只會專注於教你正規表示式的「加減乘除」。</p>
+        
+          <p class="article-more-link">
+            <a href="/2020/05/03/painless-regexp-p1/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://potato-class.com/2020/05/03/hello-world/" data-id="ck9qpthg800000jpq9d2fbqtl" data-title="Hello World" class="article-share-link">Share</a>
+      <a data-url="https://potato-class.com/2020/05/03/painless-regexp-p1/" data-id="ck9qxin1c00000inyc3vgdypg" data-title="無痛學正規表達式 —— Part 1" class="article-share-link">Share</a>
       
       
       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%9F%BA%E7%A4%8E/" rel="tag">基礎</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%AD%A3%E8%A6%8F%E5%BC%8F/" rel="tag">正規式</a></li></ul>
+
     </footer>
   </div>
   
@@ -134,9 +130,23 @@
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">標籤</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9F%BA%E7%A4%8E/" rel="tag">基礎</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AD%A3%E8%A6%8F%E5%BC%8F/" rel="tag">正規式</a></li></ul>
+    </div>
+  </div>
+
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">標籤雲</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/%E5%9F%BA%E7%A4%8E/" style="font-size: 10px;">基礎</a> <a href="/tags/%E6%AD%A3%E8%A6%8F%E5%BC%8F/" style="font-size: 10px;">正規式</a>
+    </div>
+  </div>
+
   
     
   <div class="widget-wrap">
@@ -155,7 +165,7 @@
       <ul>
         
           <li>
-            <a href="/2020/05/03/hello-world/">Hello World</a>
+            <a href="/2020/05/03/painless-regexp-p1/">無痛學正規表達式 —— Part 1</a>
           </li>
         
       </ul>
