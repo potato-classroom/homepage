@@ -8,7 +8,9 @@ subtitle: ''
 description: ''
 keywords: JavaScript,教學,後端
 author: BinotaLIU
-language: zh-TW
+language:
+  - zh-TW
+  - en
 timezone: 'Asia/Taipei'
 
 # URL
