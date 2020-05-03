@@ -35,8 +35,9 @@ jobs:
         deploy_key: ${{ secrets.DEPLOY_KEY }}
         target_repo: potato-classroom/homepage
 
-    # Use the output from the `deploy` step(use for test action)
-    - name: Get the output
-      run: |
-        echo "${{ steps.deploy.outputs.notify }}"
+    - name: Discord Commits
+      uses: binotaliu/action-discord-notifier@v1
+      with:
+        webhook: ${{ secrets.DISCORD_WEBHOOK }}
+        message-title: "更新囉!"
 
