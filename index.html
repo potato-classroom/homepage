@@ -1,348 +1,176 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE HTML>
+<html lang="zh-TW">
 <head>
   <meta charset="utf-8">
   
-  
   <title>馬鈴薯教室</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="馬鈴薯教室">
-<meta property="og:url" content="https://potato-class.com/index.html">
-<meta property="og:site_name" content="馬鈴薯教室">
-<meta property="og:locale" content="zh_TW">
-<meta property="article:author" content="BinotaLIU">
-<meta property="article:tag" content="JavaScript">
-<meta property="article:tag" content="教學">
-<meta property="article:tag" content="後端">
-<meta name="twitter:card" content="summary">
-  
-    <link rel="alternate" href="/atom.xml" title="馬鈴薯教室" type="application/atom+xml">
+  <meta name="author" content="BinotaLIU">
   
   
-    <link rel="icon" href="/favicon.png">
-  
-  
-    
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-  
-<link rel="stylesheet" href="/css/style.css">
+  <meta property="og:site_name" content="馬鈴薯教室"/>
 
   
-    
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
-
+    <meta property="og:image" content=""/>
   
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="馬鈴薯教室" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
 <meta name="generator" content="Hexo 4.2.0"></head>
 
+
 <body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">馬鈴薯教室</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="搜尋"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜尋"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://potato-class.com"></form>
-      </div>
-    </div>
-  </div>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">馬鈴薯教室</a></h1>
+  <h2><a href="/"></a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div>
 </header>
-      <div class="outer">
-        <section id="main">
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper">
+  <article id="post-painless-regexp-p2-end" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   
-    <article id="post-painless-regexp-p2-end" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2020/05/04/painless-regexp-p2-end/" class="article-date">
-  <time class="dt-published" datetime="2020-05-04T03:29:11.000Z" itemprop="datePublished">2020-05-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2020-05-04T03:29:11.000Z"><a href="/2020/05/04/painless-regexp-p2-end/">2020-05-04</a></time>
+      
+      
   
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2020/05/04/painless-regexp-p2-end/">無痛學正規表達式 —— 後篇</a>
-    </h1>
+    <h1 class="title"><a href="/2020/05/04/painless-regexp-p2-end/">無痛學正規表達式 —— 後篇</a></h1>
   
 
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
       
         <p>（這是本系列的第二部分。如果你還沒看過前篇，你可以<a href="/2020/05/03/painless-regexp-p1/">先閱讀一下</a>！）</p>
 <p>讀完前篇後，希望你已經開始享受正規式的魔力了！讓我們再來學一些進階點的東西！</p>
-<h1 id="旗標-（Flags）"><a href="#旗標-（Flags）" class="headerlink" title="旗標 （Flags）"></a>旗標 （Flags）</h1><p>首先我們要來學的是旗標。如果你已經開始上網找正規式的範例的話，你可能會發現其中的例子中包含了 <code>g</code> 或是 <code>i</code> 、或 <code>gi</code> 等。這個東西叫做 <strong>flags</strong> （旗標），可以用來告訴程式除了正規式的本體外，還要再加上什麼額外的條件。</p>
-<p>雖然我只會在這裡介紹三個 Flag，g、i、跟 m，但其實還有其他幾個 flag。讀完這個教學之後你可以再上網找找 ;)</p>
-<h2 id="「g」Flag-—-找出所有符合的！全域搜尋！"><a href="#「g」Flag-—-找出所有符合的！全域搜尋！" class="headerlink" title="「g」Flag — 找出所有符合的！全域搜尋！"></a>「g」Flag — 找出所有符合的！全域搜尋！</h2><p>下面這個例子可以列出句子中的所有母音：</p>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> input = <span class="string">'All human beings are born free and equal in dignity and rights. They are endowed with reason and conscience and should act towards one another in a spirit of brotherhood.'</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(input.match(<span class="regexp">/[aeiou]/g</span>))</span><br><span class="line"><span class="comment">// [</span></span><br><span class="line"><span class="comment">//  'u', 'a', 'e', 'i', 'a', 'e', 'o', 'e',</span></span><br><span class="line"><span class="comment">//  'e', 'a', 'e', 'u', 'a', 'i', 'i', 'i',</span></span><br><span class="line"><span class="comment">//  'a', 'i', 'e', 'a', 'e', 'e', 'o', 'e',</span></span><br><span class="line"><span class="comment">//  'i', 'e', 'a', 'o', 'a', 'o', 'i', 'e',</span></span><br><span class="line"><span class="comment">//  'e', 'a', 'o', 'u', 'a', 'o', 'a', 'o',</span></span><br><span class="line"><span class="comment">//  'e', 'a', 'o', 'e', 'i', 'a', 'i', 'i',</span></span><br><span class="line"><span class="comment">//  'o', 'o', 'e', 'o', 'o'</span></span><br><span class="line"><span class="comment">// ]</span></span><br></pre></td></tr></table></figure>
-
-<p>如果沒有加上 <code>g</code> Flag 的話，就只會回傳第一個找到的結果：</p>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(input.match(<span class="regexp">/[aeiou]/</span>))</span><br><span class="line"><span class="comment">// ['u']</span></span><br></pre></td></tr></table></figure>
-
-<p>相信如果你有跟著練習前一篇文章中的例子的話，你應該已經發現了 :)</p>
-<p>另外值得一提的是如果你同時使用了 <code>g</code> 跟群組功能（小括號）的話，<strong>回傳的結果不會包含群組</strong>。</p>
-<h2 id="「i」Flag-—-忽略大小寫！"><a href="#「i」Flag-—-忽略大小寫！" class="headerlink" title="「i」Flag — 忽略大小寫！"></a>「i」Flag — 忽略大小寫！</h2><p>前面的例子雖然找出了母音，但其實結果上還缺了一個母音 —— 開頭的「A」！因為 <code>[aeiou]</code> 只有找出小寫字母，<code>A</code> 並沒有包含在裡面。</p>
-<p>當然，我們可以這樣寫 <code>[aeiouAEIOU]</code>：</p>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(input.match(<span class="regexp">/[aeiouAEIOU]/g</span>))</span><br><span class="line"><span class="comment">// [</span></span><br><span class="line"><span class="comment">//   'A', 'u', 'a', 'e', 'i', 'a', 'e', 'o',</span></span><br><span class="line"><span class="comment">//   'e', 'e', 'a', 'e', 'u', 'a', 'i', 'i',</span></span><br><span class="line"><span class="comment">//   'i', 'a', 'i', 'e', 'a', 'e', 'e', 'o',</span></span><br><span class="line"><span class="comment">//   'e', 'i', 'e', 'a', 'o', 'a', 'o', 'i',</span></span><br><span class="line"><span class="comment">//   'e', 'e', 'a', 'o', 'u', 'a', 'o', 'a',</span></span><br><span class="line"><span class="comment">//   'o', 'e', 'a', 'o', 'e', 'i', 'a', 'i',</span></span><br><span class="line"><span class="comment">//   'i', 'o', 'o', 'e', 'o', 'o'</span></span><br><span class="line"><span class="comment">// ]</span></span><br></pre></td></tr></table></figure>
-
-<p>但這樣寫很煩，而且會讓正規式變得更複雜。讓我們來試試看 <code>i</code> Flag！</p>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(input.match(<span class="regexp">/[aeiou]/gi</span>))</span><br><span class="line"><span class="comment">// [</span></span><br><span class="line"><span class="comment">//   'A', 'u', 'a', 'e', 'i', 'a', 'e', 'o',</span></span><br><span class="line"><span class="comment">//   'e', 'e', 'a', 'e', 'u', 'a', 'i', 'i',</span></span><br><span class="line"><span class="comment">//   'i', 'a', 'i', 'e', 'a', 'e', 'e', 'o',</span></span><br><span class="line"><span class="comment">//   'e', 'i', 'e', 'a', 'o', 'a', 'o', 'i',</span></span><br><span class="line"><span class="comment">//   'e', 'e', 'a', 'o', 'u', 'a', 'o', 'a',</span></span><br><span class="line"><span class="comment">//   'o', 'e', 'a', 'o', 'e', 'i', 'a', 'i',</span></span><br><span class="line"><span class="comment">//   'i', 'o', 'o', 'e', 'o', 'o'</span></span><br><span class="line"><span class="comment">// ]</span></span><br></pre></td></tr></table></figure>
-
-<p>如何？跟前一個例子一樣獲得了相同的結果。你可以組合使用多個 Flag，或是一次只使用一個。如果要同時用多個的話，順序並不影響。你可以寫成 <code>/[aeiou]/gi</code> 或是 <code>/[aeiou]/ig</code>。</p>
-<h2 id="「e」Flag-—-在多行中尋找！"><a href="#「e」Flag-—-在多行中尋找！" class="headerlink" title="「e」Flag — 在多行中尋找！"></a>「e」Flag — 在多行中尋找！</h2><p>這個 Flag 我們會在後面錨點的段落中討論。</p>
-<h1 id="貪婪-Greedy-與慵懶-Lazy"><a href="#貪婪-Greedy-與慵懶-Lazy" class="headerlink" title="貪婪 (Greedy) 與慵懶 (Lazy)"></a>貪婪 (Greedy) 與慵懶 (Lazy)</h1><p>我們在前篇已經提過正規式的「貪婪」了，但我並沒有明確講出這個名字。來看看貪婪的正規式長什麼樣：</p>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> input = <span class="string">"&lt;a href='http://example.com' target='_blank'&gt;連結&lt;/a&gt;"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(input.match(<span class="regexp">/href='.+'/</span>))</span><br><span class="line"><span class="comment">// ["href='http://example.com' target='_blank'"]</span></span><br></pre></td></tr></table></figure>
-
-<p>由於「<code>.+</code>」會找到所有符合的字元 —— 一路到碰到最後一個 <code>&#39;</code> 而不是第一個遇到的。</p>
-<p>有方法可以讓他懶惰點，只找到最少的符合的字元。還記得我們在提到 <code>?</code> 時有說它還有另一個功能嗎？讓我們在加號後加上 <code>?</code> 試試：</p>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(input.match(<span class="regexp">/href='.+?'/</span>))</span><br><span class="line"><span class="comment">// ["href='http://example.com'"]</span></span><br></pre></td></tr></table></figure>
-
-<p>懶惰符號（<code>?</code>）可以跟加號 <code>+</code> 已經 <code>*</code> 一起使用。</p>
-<h1 id="錨點（Anchor）"><a href="#錨點（Anchor）" class="headerlink" title="錨點（Anchor）"></a>錨點（Anchor）</h1><p>錨點代表一個特定的位置，例如字串的開始與結束。</p>
-<ul>
-<li>^ 行起始</li>
-<li>$ 行結尾</li>
-</ul>
-<p>要驗證字串時很好用：</p>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> pattern = <span class="regexp">/^https?:\//</span>.+$/i</span><br><span class="line"></span><br><span class="line">pattern.exec(<span class="string">'https://example.com'</span>) <span class="comment">// 有結果</span></span><br><span class="line">pattern.exec(<span class="string">'   https://example.com'</span>) <span class="comment">// 無結果</span></span><br></pre></td></tr></table></figure>
-
-<p>由於 <code>.+</code> 是貪婪查詢，會匹配直到字串結束的所有字元，不寫 <code>$</code> 也可以。</p>
-<p>當要處理多行的字串時，我們可以搭配 <code>m</code> Flag 使用：</p>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> input = <span class="string">`Article 1</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">All human beings are born free and equal in dignity and rights. They are endowed with reason and conscience and should act towards one another in a spirit of brotherhood.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Article 2</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Everyone is entitled to all the rights and freedoms set forth in this Declaration, without distinction of any kind, such as race, colour, sex, language, religion, political or other opinion, national or social origin, property, birth or other status.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Furthermore, no distinction shall be made on the basis of the political, jurisdictional or international status of the country or territory to which a person belongs, whether it be independent, trust, non-self-governing or under any other limitation of sovereignty.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Article 3</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Everyone has the right to life, liberty and the security of person.`</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(input.match(<span class="regexp">/^E.+/gim</span>)) <span class="comment">// 會找出所有以 E 開頭的行</span></span><br></pre></td></tr></table></figure>
-
-<p>加上 <code>m</code> Flag 後，每一行的開頭都可以被 <code>^</code> 配對，而結尾則是 <code>$</code>。若沒有 <code>m</code> Flag，則 <code>^</code> 與 <code>$</code> 只會配對到整個字串的開頭與結尾。</p>
-<h1 id="字元分類-Character-Classes"><a href="#字元分類-Character-Classes" class="headerlink" title="字元分類 (Character Classes)"></a>字元分類 (Character Classes)</h1><p>還記得我們用了 <code>[0123456789]</code> 來找電話號碼嗎？之後我們改用了 <code>[0-9]</code>。但其實在正規式裡還有另一個方法可以找到數字：<code>\d</code>，代表數字（digits）。他的作用跟 <code>[0-9]</code> 一模一樣。還有其他的字元分類，我這裡只列出幾個我認為常用的。</p>
-<table>
-<thead>
-<tr>
-<th>字元</th>
-<th>同等於</th>
-<th>說明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>\d</code></td>
-<td><code>[0-9]</code></td>
-<td>數字 Digits</td>
-</tr>
-<tr>
-<td><code>\D</code></td>
-<td><code>[^0-9]</code></td>
-<td>非數字</td>
-</tr>
-<tr>
-<td><code>\w</code></td>
-<td><code>[a-zA-Z]</code></td>
-<td>字母 Words</td>
-</tr>
-<tr>
-<td><code>\W</code></td>
-<td><code>[^a-zA-Z]</code></td>
-<td>非字母</td>
-</tr>
-<tr>
-<td><code>\s</code></td>
-<td></td>
-<td>空白字元（空格、換行、Tab 等）</td>
-</tr>
-<tr>
-<td><code>\S</code></td>
-<td></td>
-<td>非空白字元</td>
-</tr>
-</tbody></table>
-<h1 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h1><p>前篇中我們學會了正規式所需要的所有基礎。在大多數的情況下你可以只用前篇中介紹的語法。</p>
-<p>而我把所有我認為並不必要的東西放在後篇中，例如 <code>i</code> Flag，你可以用 <code>[aA]</code> 這樣的方式來處理大小寫。你也可以用其他 JavaScript 的程式碼來處理全域搜尋而不用 <code>g</code> Flag。</p>
-<p>如果你還有其他問題的話，儘管留言吧！</p>
-<p>祝好運！</p>
-
       
     </div>
-    <footer class="article-footer">
-      <a data-url="https://potato-class.com/2020/05/04/painless-regexp-p2-end/" data-id="ck9ryfiy800010kqse28qgqk0" data-title="無痛學正規表達式 —— 後篇" class="article-share-link">Share</a>
+    <footer>
       
+        
+          <div class="alignleft">
+            <a href="/2020/05/04/painless-regexp-p2-end/#more" class="more-link">Read More</a>
+          </div>
+        
+        
       
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%9F%BA%E7%A4%8E/" rel="tag">基礎</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%AD%A3%E8%A6%8F%E5%BC%8F/" rel="tag">正規式</a></li></ul>
-
+      <div class="clearfix"></div>
     </footer>
   </div>
-  
 </article>
 
 
 
+
+
+  <article id="post-painless-regexp-p1" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   
-    <article id="post-painless-regexp-p1" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2020/05/03/painless-regexp-p1/" class="article-date">
-  <time class="dt-published" datetime="2020-05-03T10:06:01.000Z" itemprop="datePublished">2020-05-03</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2020-05-03T10:06:01.000Z"><a href="/2020/05/03/painless-regexp-p1/">2020-05-03</a></time>
+      
+      
   
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2020/05/03/painless-regexp-p1/">無痛學正規表達式 —— 前篇</a>
-    </h1>
+    <h1 class="title"><a href="/2020/05/03/painless-regexp-p1/">無痛學正規表達式 —— 前篇</a></h1>
   
 
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
       
         <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>網路上有各種正規表達式的教學文章。但我相信大部分的人讀完多數的文章仍然不懂正規式。主要原因是因為正規式本身可以被寫得很複雜，有很多的功能，大多的教學很容易讓人覺得因為正規式複雜而讓人挫敗。</p>
 <p>就跟在小學學算數一樣，當學完了基本的加減乘除後，老師會開始教你更難的數學，例如集合、代數等等。當然這些進階的東西是你學習數學所必須的，但我們日常生活中只會用到基本的加減乘除，若一開始就學習那些高級的東西很容易使人挫折。</p>
 <p>在這一系列的文章中我只會專注於教你正規表示式的「加減乘除」。</p>
-        
-          <p class="article-more-link">
-            <a href="/2020/05/03/painless-regexp-p1/#more">Read More</a>
-          </p>
-        
       
     </div>
-    <footer class="article-footer">
-      <a data-url="https://potato-class.com/2020/05/03/painless-regexp-p1/" data-id="ck9ryfiy100000kqs7fpr0b91" data-title="無痛學正規表達式 —— 前篇" class="article-share-link">Share</a>
+    <footer>
       
+        
+          <div class="alignleft">
+            <a href="/2020/05/03/painless-regexp-p1/#more" class="more-link">Read More</a>
+          </div>
+        
+        
       
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%9F%BA%E7%A4%8E/" rel="tag">基礎</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%AD%A3%E8%A6%8F%E5%BC%8F/" rel="tag">正規式</a></li></ul>
-
+      <div class="clearfix"></div>
     </footer>
   </div>
-  
 </article>
 
 
 
+
+
+
+<nav id="pagination">
   
-
-
-</section>
-        
-          <aside id="sidebar">
   
-    
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">標籤</h3>
-    <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9F%BA%E7%A4%8E/" rel="tag">基礎</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AD%A3%E8%A6%8F%E5%BC%8F/" rel="tag">正規式</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">標籤雲</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/%E5%9F%BA%E7%A4%8E/" style="font-size: 10px;">基礎</a> <a href="/tags/%E6%AD%A3%E8%A6%8F%E5%BC%8F/" style="font-size: 10px;">正規式</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">彙整</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a></li></ul>
-    </div>
-  </div>
+  <div class="clearfix"></div>
+</nav></div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜尋">
+    <input type="hidden" name="as_sitesearch" value="potato-class.com">
+  </form>
+</div>
 
 
   
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">最新文章</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2020/05/04/painless-regexp-p2-end/">無痛學正規表達式 —— 後篇</a>
-          </li>
-        
-          <li>
-            <a href="/2020/05/03/painless-regexp-p1/">無痛學正規表達式 —— 前篇</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
 
   
+<div class="widget tag">
+  <h3 class="title">標籤</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/基礎/">基礎</a><small>2</small></li>
+  
+    <li><a href="/tags/正規式/">正規式</a><small>2</small></li>
+  
+  </ul>
+</div>
+
 </aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2020 BinotaLIU<br>
-      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
-    </div>
+    <div class="clearfix"></div>
   </div>
-</footer>
-
-    </div>
-    <nav id="mobile-nav">
+  <footer id="footer" class="inner"><div class="alignleft">
   
-    <a href="/" class="mobile-nav-link">Home</a>
+  &copy; 2020 BinotaLIU
   
-    <a href="/archives" class="mobile-nav-link">Archives</a>
+</div>
+<div class="clearfix"></div></footer>
   
-</nav>
-    
-
-
 <script src="/js/jquery-3.4.1.min.js"></script>
 
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
 
 
-  
-<script src="/fancybox/jquery.fancybox.min.js"></script>
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
 
 
-
-
-<script src="/js/script.js"></script>
-
-
-
-
-
-  </div>
 </body>
 </html>

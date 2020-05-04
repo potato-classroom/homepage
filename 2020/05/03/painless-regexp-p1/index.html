@@ -1,100 +1,64 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE HTML>
+<html lang="zh-TW">
 <head>
   <meta charset="utf-8">
   
-  
   <title>無痛學正規表達式 —— 前篇 | 馬鈴薯教室</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="前言網路上有各種正規表達式的教學文章。但我相信大部分的人讀完多數的文章仍然不懂正規式。主要原因是因為正規式本身可以被寫得很複雜，有很多的功能，大多的教學很容易讓人覺得因為正規式複雜而讓人挫敗。 就跟在小學學算數一樣，當學完了基本的加減乘除後，老師會開始教你更難的數學，例如集合、代數等等。當然這些進階的東西是你學習數學所必須的，但我們日常生活中只會用到基本的加減乘除，若一開始就學習那些高級的東西很容">
-<meta property="og:type" content="article">
-<meta property="og:title" content="無痛學正規表達式 —— 前篇">
-<meta property="og:url" content="https://potato-class.com/2020/05/03/painless-regexp-p1/index.html">
-<meta property="og:site_name" content="馬鈴薯教室">
-<meta property="og:description" content="前言網路上有各種正規表達式的教學文章。但我相信大部分的人讀完多數的文章仍然不懂正規式。主要原因是因為正規式本身可以被寫得很複雜，有很多的功能，大多的教學很容易讓人覺得因為正規式複雜而讓人挫敗。 就跟在小學學算數一樣，當學完了基本的加減乘除後，老師會開始教你更難的數學，例如集合、代數等等。當然這些進階的東西是你學習數學所必須的，但我們日常生活中只會用到基本的加減乘除，若一開始就學習那些高級的東西很容">
-<meta property="og:locale" content="zh_TW">
-<meta property="article:published_time" content="2020-05-03T10:06:01.000Z">
-<meta property="article:modified_time" content="2020-05-04T03:58:56.867Z">
-<meta property="article:author" content="BinotaLIU">
-<meta property="article:tag" content="正規式">
-<meta property="article:tag" content="基礎">
-<meta name="twitter:card" content="summary">
+  <meta name="author" content="BinotaLIU">
   
-    <link rel="alternate" href="/atom.xml" title="馬鈴薯教室" type="application/atom+xml">
+  <meta name="description" content="前言網路上有各種正規表達式的教學文章。但我相信大部分的人讀完多數的文章仍然不懂正規式。主要原因是因為正規式本身可以被寫得很複雜，有很多的功能，大多的教學很容易讓人覺得因為正規式複雜而讓人挫敗。
+就跟在小學學算數一樣，當學完了基本的加減乘除後，老師會開始教你更難的數學，例如集合、代數等等。當然這些進階的東西是你學習數學所必須的，但我們日常生活中只會用到基本的加減乘除，若一開始就學習那些高級的東西很容易使人挫折。
+在這一系列的文章中我只會專注於教你正規表示式的「加減乘除」。">
   
   
-    <link rel="icon" href="/favicon.png">
-  
-  
-    
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="無痛學正規表達式 —— 前篇"/>
+  <meta property="og:site_name" content="馬鈴薯教室"/>
 
   
+    <meta property="og:image" content=""/>
   
-<link rel="stylesheet" href="/css/style.css">
 
-  
-    
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
-
-  
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="馬鈴薯教室" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
 <meta name="generator" content="Hexo 4.2.0"></head>
 
+
 <body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">馬鈴薯教室</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="搜尋"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜尋"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://potato-class.com"></form>
-      </div>
-    </div>
-  </div>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">馬鈴薯教室</a></h1>
+  <h2><a href="/"></a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div>
 </header>
-      <div class="outer">
-        <section id="main"><article id="post-painless-regexp-p1" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2020/05/03/painless-regexp-p1/" class="article-date">
-  <time class="dt-published" datetime="2020-05-03T10:06:01.000Z" itemprop="datePublished">2020-05-03</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article id="post-painless-regexp-p1" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   
-    <h1 class="p-name article-title" itemprop="headline name">
-      無痛學正規表達式 —— 前篇
-    </h1>
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2020-05-03T10:06:01.000Z"><a href="/2020/05/03/painless-regexp-p1/">2020-05-03</a></time>
+      
+      
+  
+    <h1 class="p-name title" itemprop="headline name">無痛學正規表達式 —— 前篇</h1>
   
 
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
       
         <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>網路上有各種正規表達式的教學文章。但我相信大部分的人讀完多數的文章仍然不懂正規式。主要原因是因為正規式本身可以被寫得很複雜，有很多的功能，大多的教學很容易讓人覺得因為正規式複雜而讓人挫敗。</p>
 <p>就跟在小學學算數一樣，當學完了基本的加減乘除後，老師會開始教你更難的數學，例如集合、代數等等。當然這些進階的東西是你學習數學所必須的，但我們日常生活中只會用到基本的加減乘除，若一開始就學習那些高級的東西很容易使人挫折。</p>
@@ -167,130 +131,84 @@
 
       
     </div>
-    <footer class="article-footer">
-      <a data-url="https://potato-class.com/2020/05/03/painless-regexp-p1/" data-id="ck9ryfiy100000kqs7fpr0b91" data-title="無痛學正規表達式 —— 前篇" class="article-share-link">Share</a>
+    <footer>
       
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%9F%BA%E7%A4%8E/" rel="tag">基礎</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%AD%A3%E8%A6%8F%E5%BC%8F/" rel="tag">正規式</a></li></ul>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/正規式/">正規式</a>, <a href="/tags/基礎/">基礎</a>
+  </div>
 
+        
+      
+      <div class="clearfix"></div>
     </footer>
   </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2020/05/04/painless-regexp-p2-end/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          無痛學正規表達式 —— 後篇
-        
-      </div>
-    </a>
-  
-  
-</nav>
-
-  
 </article>
 
 
+<section id="comment">
+  <h1 class="title">留言</h1>
+
+  <script src="https://utteranc.es/client.js"
+    repo="potato-class/homepage"
+    issue-term="pathname"
+    theme="github-light"
+    crossorigin="anonymous"
+    async>
+  </script>
 </section>
-        
-          <aside id="sidebar">
-  
-    
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">標籤</h3>
-    <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9F%BA%E7%A4%8E/" rel="tag">基礎</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AD%A3%E8%A6%8F%E5%BC%8F/" rel="tag">正規式</a></li></ul>
-    </div>
-  </div>
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜尋">
+    <input type="hidden" name="as_sitesearch" value="potato-class.com">
+  </form>
+</div>
 
 
   
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">標籤雲</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/%E5%9F%BA%E7%A4%8E/" style="font-size: 10px;">基礎</a> <a href="/tags/%E6%AD%A3%E8%A6%8F%E5%BC%8F/" style="font-size: 10px;">正規式</a>
-    </div>
-  </div>
 
   
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">彙整</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a></li></ul>
-    </div>
-  </div>
-
-
+<div class="widget tag">
+  <h3 class="title">標籤</h3>
+  <ul class="entry">
   
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">最新文章</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2020/05/04/painless-regexp-p2-end/">無痛學正規表達式 —— 後篇</a>
-          </li>
-        
-          <li>
-            <a href="/2020/05/03/painless-regexp-p1/">無痛學正規表達式 —— 前篇</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
+    <li><a href="/tags/基礎/">基礎</a><small>2</small></li>
   
+    <li><a href="/tags/正規式/">正規式</a><small>2</small></li>
+  
+  </ul>
+</div>
+
 </aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2020 BinotaLIU<br>
-      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
-    </div>
+    <div class="clearfix"></div>
   </div>
-</footer>
-
-    </div>
-    <nav id="mobile-nav">
+  <footer id="footer" class="inner"><div class="alignleft">
   
-    <a href="/" class="mobile-nav-link">Home</a>
+  &copy; 2020 BinotaLIU
   
-    <a href="/archives" class="mobile-nav-link">Archives</a>
+</div>
+<div class="clearfix"></div></footer>
   
-</nav>
-    
-
-
 <script src="/js/jquery-3.4.1.min.js"></script>
 
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
 
 
-  
-<script src="/fancybox/jquery.fancybox.min.js"></script>
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
 
 
-
-
-<script src="/js/script.js"></script>
-
-
-
-
-
-  </div>
 </body>
 </html>

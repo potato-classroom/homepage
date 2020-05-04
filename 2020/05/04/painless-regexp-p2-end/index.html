@@ -1,103 +1,68 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE HTML>
+<html lang="zh-TW">
 <head>
   <meta charset="utf-8">
   
-  
   <title>無痛學正規表達式 —— 後篇 | 馬鈴薯教室</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="（這是本系列的第二部分。如果你還沒看過前篇，你可以先閱讀一下！） 讀完前篇後，希望你已經開始享受正規式的魔力了！讓我們再來學一些進階點的東西！ 旗標 （Flags）首先我們要來學的是旗標。如果你已經開始上網找正規式的範例的話，你可能會發現其中的例子中包含了 g 或是 i 、或 gi 等。這個東西叫做 flags （旗標），可以用來告訴程式除了正規式的本體外，還要再加上什麼額外的條件。 雖然我只會在">
-<meta property="og:type" content="article">
-<meta property="og:title" content="無痛學正規表達式 —— 後篇">
-<meta property="og:url" content="https://potato-class.com/2020/05/04/painless-regexp-p2-end/index.html">
-<meta property="og:site_name" content="馬鈴薯教室">
-<meta property="og:description" content="（這是本系列的第二部分。如果你還沒看過前篇，你可以先閱讀一下！） 讀完前篇後，希望你已經開始享受正規式的魔力了！讓我們再來學一些進階點的東西！ 旗標 （Flags）首先我們要來學的是旗標。如果你已經開始上網找正規式的範例的話，你可能會發現其中的例子中包含了 g 或是 i 、或 gi 等。這個東西叫做 flags （旗標），可以用來告訴程式除了正規式的本體外，還要再加上什麼額外的條件。 雖然我只會在">
-<meta property="og:locale" content="zh_TW">
-<meta property="article:published_time" content="2020-05-04T03:29:11.000Z">
-<meta property="article:modified_time" content="2020-05-04T03:58:56.867Z">
-<meta property="article:author" content="BinotaLIU">
-<meta property="article:tag" content="正規式">
-<meta property="article:tag" content="基礎">
-<meta name="twitter:card" content="summary">
+  <meta name="author" content="BinotaLIU">
   
-    <link rel="alternate" href="/atom.xml" title="馬鈴薯教室" type="application/atom+xml">
+  <meta name="description" content="（這是本系列的第二部分。如果你還沒看過前篇，你可以先閱讀一下！）
+讀完前篇後，希望你已經開始享受正規式的魔力了！讓我們再來學一些進階點的東西！">
   
   
-    <link rel="icon" href="/favicon.png">
-  
-  
-    
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="無痛學正規表達式 —— 後篇"/>
+  <meta property="og:site_name" content="馬鈴薯教室"/>
 
   
+    <meta property="og:image" content=""/>
   
-<link rel="stylesheet" href="/css/style.css">
 
-  
-    
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
-
-  
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="馬鈴薯教室" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
 <meta name="generator" content="Hexo 4.2.0"></head>
 
+
 <body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">馬鈴薯教室</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="搜尋"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜尋"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://potato-class.com"></form>
-      </div>
-    </div>
-  </div>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">馬鈴薯教室</a></h1>
+  <h2><a href="/"></a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div>
 </header>
-      <div class="outer">
-        <section id="main"><article id="post-painless-regexp-p2-end" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2020/05/04/painless-regexp-p2-end/" class="article-date">
-  <time class="dt-published" datetime="2020-05-04T03:29:11.000Z" itemprop="datePublished">2020-05-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article id="post-painless-regexp-p2-end" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   
-    <h1 class="p-name article-title" itemprop="headline name">
-      無痛學正規表達式 —— 後篇
-    </h1>
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2020-05-04T03:29:11.000Z"><a href="/2020/05/04/painless-regexp-p2-end/">2020-05-04</a></time>
+      
+      
+  
+    <h1 class="p-name title" itemprop="headline name">無痛學正規表達式 —— 後篇</h1>
   
 
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
       
         <p>（這是本系列的第二部分。如果你還沒看過前篇，你可以<a href="/2020/05/03/painless-regexp-p1/">先閱讀一下</a>！）</p>
 <p>讀完前篇後，希望你已經開始享受正規式的魔力了！讓我們再來學一些進階點的東西！</p>
+<a id="more"></a>
+
 <h1 id="旗標-（Flags）"><a href="#旗標-（Flags）" class="headerlink" title="旗標 （Flags）"></a>旗標 （Flags）</h1><p>首先我們要來學的是旗標。如果你已經開始上網找正規式的範例的話，你可能會發現其中的例子中包含了 <code>g</code> 或是 <code>i</code> 、或 <code>gi</code> 等。這個東西叫做 <strong>flags</strong> （旗標），可以用來告訴程式除了正規式的本體外，還要再加上什麼額外的條件。</p>
 <p>雖然我只會在這裡介紹三個 Flag，g、i、跟 m，但其實還有其他幾個 flag。讀完這個教學之後你可以再上網找找 ;)</p>
 <h2 id="「g」Flag-—-找出所有符合的！全域搜尋！"><a href="#「g」Flag-—-找出所有符合的！全域搜尋！" class="headerlink" title="「g」Flag — 找出所有符合的！全域搜尋！"></a>「g」Flag — 找出所有符合的！全域搜尋！</h2><p>下面這個例子可以列出句子中的所有母音：</p>
@@ -185,126 +150,84 @@
 
       
     </div>
-    <footer class="article-footer">
-      <a data-url="https://potato-class.com/2020/05/04/painless-regexp-p2-end/" data-id="ck9ryfiy800010kqse28qgqk0" data-title="無痛學正規表達式 —— 後篇" class="article-share-link">Share</a>
+    <footer>
       
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%9F%BA%E7%A4%8E/" rel="tag">基礎</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%AD%A3%E8%A6%8F%E5%BC%8F/" rel="tag">正規式</a></li></ul>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/正規式/">正規式</a>, <a href="/tags/基礎/">基礎</a>
+  </div>
 
+        
+      
+      <div class="clearfix"></div>
     </footer>
   </div>
-  
-    
-<nav id="article-nav">
-  
-  
-    <a href="/2020/05/03/painless-regexp-p1/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">無痛學正規表達式 —— 前篇</div>
-    </a>
-  
-</nav>
-
-  
 </article>
 
 
+<section id="comment">
+  <h1 class="title">留言</h1>
+
+  <script src="https://utteranc.es/client.js"
+    repo="potato-class/homepage"
+    issue-term="pathname"
+    theme="github-light"
+    crossorigin="anonymous"
+    async>
+  </script>
 </section>
-        
-          <aside id="sidebar">
-  
-    
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">標籤</h3>
-    <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9F%BA%E7%A4%8E/" rel="tag">基礎</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AD%A3%E8%A6%8F%E5%BC%8F/" rel="tag">正規式</a></li></ul>
-    </div>
-  </div>
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜尋">
+    <input type="hidden" name="as_sitesearch" value="potato-class.com">
+  </form>
+</div>
 
 
   
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">標籤雲</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/%E5%9F%BA%E7%A4%8E/" style="font-size: 10px;">基礎</a> <a href="/tags/%E6%AD%A3%E8%A6%8F%E5%BC%8F/" style="font-size: 10px;">正規式</a>
-    </div>
-  </div>
 
   
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">彙整</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a></li></ul>
-    </div>
-  </div>
-
-
+<div class="widget tag">
+  <h3 class="title">標籤</h3>
+  <ul class="entry">
   
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">最新文章</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2020/05/04/painless-regexp-p2-end/">無痛學正規表達式 —— 後篇</a>
-          </li>
-        
-          <li>
-            <a href="/2020/05/03/painless-regexp-p1/">無痛學正規表達式 —— 前篇</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
+    <li><a href="/tags/基礎/">基礎</a><small>2</small></li>
   
+    <li><a href="/tags/正規式/">正規式</a><small>2</small></li>
+  
+  </ul>
+</div>
+
 </aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2020 BinotaLIU<br>
-      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
-    </div>
+    <div class="clearfix"></div>
   </div>
-</footer>
-
-    </div>
-    <nav id="mobile-nav">
+  <footer id="footer" class="inner"><div class="alignleft">
   
-    <a href="/" class="mobile-nav-link">Home</a>
+  &copy; 2020 BinotaLIU
   
-    <a href="/archives" class="mobile-nav-link">Archives</a>
+</div>
+<div class="clearfix"></div></footer>
   
-</nav>
-    
-
-
 <script src="/js/jquery-3.4.1.min.js"></script>
 
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
 
 
-  
-<script src="/fancybox/jquery.fancybox.min.js"></script>
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
 
 
-
-
-<script src="/js/script.js"></script>
-
-
-
-
-
-  </div>
 </body>
 </html>
