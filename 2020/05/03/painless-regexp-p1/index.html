@@ -4,17 +4,17 @@
   <meta charset="utf-8">
   
   
-  <title>無痛學正規表達式 —— Part 1 | 馬鈴薯教室</title>
+  <title>無痛學正規表達式 —— 前篇 | 馬鈴薯教室</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="前言網路上有各種正規表達式的教學文章。但我相信大部分的人讀完多數的文章仍然不懂正規式。主要原因是因為正規式本身可以被寫得很複雜，有很多的功能，大多的教學很容易讓人覺得因為正規式複雜而讓人挫敗。 就跟在小學學算數一樣，當學完了基本的加減乘除後，老師會開始教你更難的數學，例如集合、代數等等。當然這些進階的東西是你學習數學所必須的，但我們日常生活中只會用到基本的加減乘除，若一開始就學習那些高級的東西很容">
 <meta property="og:type" content="article">
-<meta property="og:title" content="無痛學正規表達式 —— Part 1">
+<meta property="og:title" content="無痛學正規表達式 —— 前篇">
 <meta property="og:url" content="https://potato-class.com/2020/05/03/painless-regexp-p1/index.html">
 <meta property="og:site_name" content="馬鈴薯教室">
 <meta property="og:description" content="前言網路上有各種正規表達式的教學文章。但我相信大部分的人讀完多數的文章仍然不懂正規式。主要原因是因為正規式本身可以被寫得很複雜，有很多的功能，大多的教學很容易讓人覺得因為正規式複雜而讓人挫敗。 就跟在小學學算數一樣，當學完了基本的加減乘除後，老師會開始教你更難的數學，例如集合、代數等等。當然這些進階的東西是你學習數學所必須的，但我們日常生活中只會用到基本的加減乘除，若一開始就學習那些高級的東西很容">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2020-05-03T10:06:01.000Z">
-<meta property="article:modified_time" content="2020-05-04T00:09:07.649Z">
+<meta property="article:modified_time" content="2020-05-04T03:58:56.867Z">
 <meta property="article:author" content="BinotaLIU">
 <meta property="article:tag" content="正規式">
 <meta property="article:tag" content="基礎">
@@ -88,7 +88,7 @@
         
   
     <h1 class="p-name article-title" itemprop="headline name">
-      無痛學正規表達式 —— Part 1
+      無痛學正規表達式 —— 前篇
     </h1>
   
 
@@ -133,6 +133,9 @@
 <p>來看看另一個例子：</p>
 <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> input2 = <span class="string">"&lt;a href=''&gt;"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(input.match(<span class="regexp">/'.+'/</span>)) <span class="comment">// [] - 什麼都沒有！</span></span><br><span class="line"><span class="built_in">console</span>.log(input.match(<span class="regexp">/'.*'/</span>)) <span class="comment">// ["''"]</span></span><br></pre></td></tr></table></figure>
 
+<h2 id="大括號「-」"><a href="#大括號「-」" class="headerlink" title="大括號「{ }」"></a>大括號「{ }」</h2><p>大括號代表找出重複了指定次數的字元：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const input &#x3D; &quot;我的電話號碼是: 0912345678&quot;</span><br><span class="line"></span><br><span class="line">console.log(input.match(&#x2F;[012345678]&#123;9&#125;&#x2F;)) &#x2F;&#x2F; 只找出 9 個數字</span><br><span class="line">console.log(input.match(&#x2F;[012345678]&#123;8&#125;&#x2F;)) &#x2F;&#x2F; 只找出 8 個數字</span><br><span class="line">console.log(input.match(&#x2F;[012345678]&#123;1,9&#125;&#x2F;)) &#x2F;&#x2F; 找出 1~9 個數字</span><br></pre></td></tr></table></figure>
+
 <h2 id="方括號「-」"><a href="#方括號「-」" class="headerlink" title="方括號「[ ]」"></a>方括號「[ ]」</h2><p>方括號代表要讓程式找出括號中的任一字元。</p>
 <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> input = <span class="string">"我的電話號碼是: 0912345678"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(input.match(<span class="regexp">/[0123456789]+/</span>)) <span class="comment">// ["0912345678"]</span></span><br></pre></td></tr></table></figure>
 
@@ -165,7 +168,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://potato-class.com/2020/05/03/painless-regexp-p1/" data-id="ck9rq7z1k00000kp7eeoo918e" data-title="無痛學正規表達式 —— Part 1" class="article-share-link">Share</a>
+      <a data-url="https://potato-class.com/2020/05/03/painless-regexp-p1/" data-id="ck9ryfiy100000kqs7fpr0b91" data-title="無痛學正規表達式 —— 前篇" class="article-share-link">Share</a>
       
       
       
@@ -175,6 +178,20 @@
   </div>
   
     
+<nav id="article-nav">
+  
+    <a href="/2020/05/04/painless-regexp-p2-end/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          無痛學正規表達式 —— 後篇
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
   
 </article>
 
@@ -222,7 +239,11 @@
       <ul>
         
           <li>
-            <a href="/2020/05/03/painless-regexp-p1/">無痛學正規表達式 —— Part 1</a>
+            <a href="/2020/05/04/painless-regexp-p2-end/">無痛學正規表達式 —— 後篇</a>
+          </li>
+        
+          <li>
+            <a href="/2020/05/03/painless-regexp-p1/">無痛學正規表達式 —— 前篇</a>
           </li>
         
       </ul>
