@@ -1,13 +1,14 @@
 menu:
-  Home:
-  Archives: archives
+  首頁: 
+  彙整: archives
+  關於: manifesto
 
 widgets:
 - search
 - category
 - tag
 
-excerpt_link: Read More
+excerpt_link: 閱讀更多
 
 twitter:
   username:
