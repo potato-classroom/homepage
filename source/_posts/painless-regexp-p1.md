@@ -1,5 +1,5 @@
 ---
-title: 無痛學正規表達式 —— Part 1
+title: 無痛學正規表達式 —— 前篇
 date: 2020-05-03 18:06:01
 tags: [正規式, 基礎]
 ---
@@ -110,6 +110,17 @@ const input2 = "<a href=''>"
 
 console.log(input.match(/'.+'/)) // [] - 什麼都沒有！
 console.log(input.match(/'.*'/)) // ["''"]
+```
+
+## 大括號「{ }」
+
+大括號代表找出重複了指定次數的字元：
+```
+const input = "我的電話號碼是: 0912345678"
+
+console.log(input.match(/[012345678]{9}/)) // 只找出 9 個數字
+console.log(input.match(/[012345678]{8}/)) // 只找出 8 個數字
+console.log(input.match(/[012345678]{1,9}/)) // 找出 1~9 個數字
 ```
 
 ## 方括號「[ ]」
